@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #e7e7e7;
+}
+
+/* COntainer Css */
+
+.container{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+
+/* Heading Css */
+
+.container h2{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Input Css */
+
+.container input, .container select{
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Button Css */
+
+.container button{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #0c5ba0;
+    border-color:  transparent;
+    border-radius: 5px;
+}
+
+/* Result Css */
+
+h4{
+    padding: 5px 0;
+}

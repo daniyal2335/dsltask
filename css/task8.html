@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Application</title>
+</head>
+
+<body>
+
+    <h1>Welcome to the Bank</h1>
+    <div class="container">
+        <h2>Account Information</h2>
+        <label for="accountName">Account Name:</label>
+        <input type="text" id="accountName"><br>
+        <label for="initialBalance">Initial Balance:</label>
+        <input type="number" id="initialBalance"><br>
+        <button onclick="createAccount()">Create Account</button><br><br>
+    </div>
+
+    <label for="depositAmount">Deposit Amount:</label>
+    <input type="number" id="depositAmount"><br>
+    <button onclick="deposit()">Deposit</button><br><br>
+
+    <label for="withdrawAmount">Withdraw Amount:</label>
+    <input type="number" id="withdrawAmount"><br>
+    <button onclick="withdraw()">Withdraw</button><br><br>
+
+    <p>Current Balance: <span id="balanceDisplay">0</span></p>
+
+    <script>
+        function createAccount() {
+            var accountName = document.getElementById("accountName").value;
+            var initialBalance = parseFloat(document.getElementById("initialBalance").value);
+
+            if (!accountName || isNaN(initialBalance) || initialBalance < 0) {
+                alert("Please enter valid account name and initial balance.");
+                return;
+            }
+
+            var account = {
+                name: accountName,
+                balance: initialBalance
+            };
+
+            localStorage.setItem("bankAccount", JSON.stringify(account));
+            updateBalance(initialBalance);
+        }
+
+        function deposit() {
+            var depositAmount = parseFloat(document.getElementById("depositAmount").value);
+            if (isNaN(depositAmount) || depositAmount <= 0) {
+                alert("Please enter a valid deposit amount.");
+                return;
+            }
+
+            var account = JSON.parse(localStorage.getItem("bankAccount"));
+            account.balance += depositAmount;
+            localStorage.setItem("bankAccount", JSON.stringify(account));
+            updateBalance(account.balance);
+        }
+
+        function withdraw() {
+            var withdrawAmount = parseFloat(document.getElementById("withdrawAmount").value);
+            if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
+                alert("Please enter a valid withdrawal amount.");
+                return;
+            }
+
+            var account = JSON.parse(localStorage.getItem("bankAccount"));
+            if (withdrawAmount > account.balance) {
+                alert("Insufficient funds.");
+                return;
+            }
+
+            account.balance -= withdrawAmount;
+            localStorage.setItem("bankAccount", JSON.stringify(account));
+            updateBalance(account.balance);
+        }
+
+        function updateBalance(balance) {
+            document.getElementById("balanceDisplay").textContent = balance.toFixed(2);
+        }
+
+        // Initialize balance display
+        var storedAccount = localStorage.getItem("bankAccount");
+        if (storedAccount) {
+            var account = JSON.parse(storedAccount);
+            updateBalance(account.balance);
+        }
+    </script>
+</body>
+
+</html>

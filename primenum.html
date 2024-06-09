@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>primeNumbers</title>
+</head>
+<body>
+    <script>
+        // Function to check if a number is prime
+function PrimeNum(num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 === 0 || num % 3 === 0) return false;
+    
+    let i = 5;
+    while (i * i <= num) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+        i += 6;
+    }
+    return true;
+}
+
+// Function to generate and print the first v prime numbers
+function genPrimeNum(v) {
+    var primary = [];
+    let num1 = 2;
+    
+    while (primary.length < v) {
+        if (PrimeNum(num1)) {
+            primary.push(num1);
+        }
+        num1++;
+    }
+    
+    console.log("First " + v + " prime numbers are");
+    console.log(primary.join(", "));
+}
+
+//put number prompt input field
+var v = parseInt(prompt("Enter the number of prime numbers"));
+
+// Checking if the input is a positive integer
+if (isNaN(v) || v <= 0 || !Number.isInteger(v)) {
+    console.log("Please enter a valid positive integer");
+} else {
+    genPrimeNum(v);
+}
+
+    </script>
+</body>
+</html>

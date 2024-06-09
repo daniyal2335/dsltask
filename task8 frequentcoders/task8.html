@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Application</title>
+    <link rel="stylesheet" href="assests/css/task8.css">
+    <script src="assests/js/task8.js"></script>
+</head>
+
+<body>
+
+    <h1>Welcome to the Bank</h1>
+    <div class="container">
+        <h2>Account Information</h2>
+        <label for="accountName">Account Name</label>
+        <input type="text" id="accountName" placeholder="Enter amount"><br>
+        <label for="iniBalance">Initial Balance:</label>
+        <input type="number" id="iniBalance" placeholder="Enter number"><br>
+        <button onclick="createAccount()">Create Account</button><br><br>
+    </div>
+
+    <div class="container2">
+        <h2>Transaction</h2>
+        <label for="transactAmount">Amount</label>
+        <input type="number" id="transactAmount" placeholder="Enter amount"><br>
+        <button id="depAmount" onclick="deposit()">Deposit</button> <button id="drawAmount"
+            onclick="withdraw()">Withdraw</button><br>
+    </div>
+
+    <div class="container3">
+        <p>Current Balance: <span id="balanceOutput">0</span></p>
+    </div>
+
+    
+</body>
+
+</html>

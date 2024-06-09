@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Calculator</h2>
+    <form id="calculator">
+        <input type="number" id="n1" placeholder="Enter first number">
+        <input type="number" id="n2" placeholder="Enter second number">
+        <button type="button" onclick="cal()">Calculate</button>
+    </form>
+    <div id="res"></div>
+
+    <script>
+        function cal() {
+            var num1 = parseFloat(document.getElementById('n1').value);
+            var num2 = parseFloat(document.getElementById('n2').value);
+            
+            var add = num1 + num2;
+            var sub = num1 - num2;
+            var multiply = num1 * num2;
+            var divide = num2 === 0 ? "Error! Divided by zero." : num1 / num2;
+            
+            var result = "Addition: " + add + "<br>"
+            + "Subtraction: " + sub + "<br>"
+            + "Multiplication: " + multiply + "<br>"
+            + "Division: " + divide;
+            
+            document.getElementById('res').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

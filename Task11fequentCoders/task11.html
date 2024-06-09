@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Drawing Application</title>
+    <link rel="stylesheet" href="css/rain.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Rainbow Drawing</h1>
+        <div id="colors">
+            <label for="red">Red:</label>
+            <input type="color" id="red" value="#ff0000">
+            <label for="orange">Orange:</label>
+            <input type="color" id="orange" value="#ffa500">
+            <label for="yellow">Yellow:</label>
+            <input type="color" id="yellow" value="#ffff00">
+            <label for="green">Green:</label>
+            <input type="color" id="green" value="#008000">
+            <label for="blue">Blue:</label>
+            <input type="color" id="blue" value="#0000ff">
+            <label for="indigo">Indigo:</label>
+            <input type="color" id="indigo" value="#4b0082">
+            <label for="violet">Violet:</label>
+            <input type="color" id="violet" value="#9400d3">
+        </div>
+        <canvas id="rainBow" width="600" height="400"></canvas>
+        <button id="button" onclick="draw()">Draw Rainbow</button>
+    </div>
+    <script src="js/rain.js"></script>
+</body>
+</html>

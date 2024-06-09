@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word frequency counter</title>
+</head>
+<body>
+    <script>
+        //create a function wordcount
+        function wordcount(text) {
+    // Convert text to lowercase
+    var words = text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/);
+    
+   
+    var wordfreq = {};
+    
+    // Count frequencies of words foreach method
+    words.forEach(word => {
+        if (wordfreq[word]) {
+            wordfreq[word]++;
+        } else {
+            wordfreq[word] = 1;
+        }
+    });
+    
+    // Sort the words alphabetically
+    var sortedWords = Object.keys(wordfreq).sort();
+    
+    // Display the word frequency
+    console.log("paragraph word by word");
+    sortedWords.forEach(word => {
+        console.log(`${word}: ${wordfreq[word]}`);
+    });
+}
+
+// Example paragraph
+var paragraph = "Paragraphs are the building blocks of papers. Many Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. ";
+
+// Call the function with the paragraph
+wordcount(paragraph);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindrome</title>
+</head>
+<body>
+  <!--how to check a user value is palindrome or not!--> 
+  <script>
+    let str= prompt("enter your value");
+    let strRev= str.split("").reverse().join("");//split breaks the string and convert
+    if(str){
+        if(str == strRev){
+            console.log(true + " " + strRev);
+        }
+        else{
+            console.log(false + " " + strRev);
+        }
+    }
+else{
+    console.log('enter value');
+}
+  </script>
+</body>
+</html>

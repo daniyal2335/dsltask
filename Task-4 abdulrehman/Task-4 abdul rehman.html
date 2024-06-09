@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting Eligibility Checker</title>
+<style>
+  body {
+   
+    text-align: center;
+    margin-top: 50px;
+  }
+  #ageInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  #checkEligibilityBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+    
+<h1>Voting Eligibility Checker</h1>
+<label for="ageInput">Enter your age:</label>
+<input type="number" id="ageInput" min="0" required>
+<button id="checkEligibilityBtn">Check Eligibility</button>
+<p id="resultMessage"></p>
+
+<script>
+  document.getElementById('checkEligibilityBtn').addEventListener('click', function(){
+    var age = document.getElementById('ageInput').value;
+    if (age === '') {
+      document.getElementById('resultMessage').textContent = 'Please enter your age.';
+    } else if (age < 0) {
+      document.getElementById('resultMessage').textContent = 'Please enter a valid age.';
+    } else if (age >= 18) {
+      document.getElementById('resultMessage').textContent = 'You are eligible to vote.';
+    } else {
+      document.getElementById('resultMessage').textContent = 'You are not eligible to vote yet.';
+    }
+  });
+</script>
+</body>
+</html>
